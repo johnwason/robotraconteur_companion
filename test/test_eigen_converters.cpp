@@ -132,7 +132,10 @@ TEST(EigenConverters, ZeroQuaternionIsIdentity)
     // An all-zero quaternion, as in a default constructed structure, converts to the identity
     com::robotraconteur::geometry::Quaternion q{};
     Eigen::Quaterniond eq = RREigen::ToQuaternion(q);
-    EXPECT_EQ(eq.coeffs(), Eigen::Quaterniond::Identity().coeffs());
+    EXPECT_EQ(eq.w(), 1);
+    EXPECT_EQ(eq.x(), 0);
+    EXPECT_EQ(eq.y(), 0);
+    EXPECT_EQ(eq.z(), 0);
 
     com::robotraconteur::geometry::Transform t{};
     t.s.translation.s.x = 1;
