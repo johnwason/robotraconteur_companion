@@ -84,7 +84,7 @@ jobs:
       run: |
         mkdir build
         cd build
-        cmake -G Ninja -DCMAKE_BUILD_TYPE=Release -DBUILD_DOCUMENATION=ON -DBULID_TESTING=ON ../src
+        cmake -G Ninja -DCMAKE_BUILD_TYPE=Release -DBUILD_DOCUMENTATION=ON -DBUILD_TESTING=ON ../src
     - name: cmake build
       run: cmake --build build --config Release
     - name: cmake build docs
@@ -171,7 +171,7 @@ jobs:
         mkdir build
         cd build
         eval $(rpm --eval '%{set_build_flags}')
-        cmake -G Ninja -DCMAKE_BUILD_TYPE=Release -DBUILD_DOCUMENATION=OFF -DBULID_TESTING=ON ../src
+        cmake -G Ninja -DCMAKE_BUILD_TYPE=Release -DBUILD_DOCUMENTATION=OFF -DBUILD_TESTING=ON ../src
     - name: cmake build
       run: cmake --build build --config Release
     - name: run ctest
@@ -207,7 +207,7 @@ jobs:
         cmake -G Ninja -S src -B build
         ${{ steps.vcpkg.outputs.vcpkg-cmake-config }}
         -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON
-        -DBULID_TESTING=ON
+        -DBUILD_TESTING=ON
     - name: cmake build
       run: cmake --build build --config Release
     - name: run ctest
