@@ -181,10 +181,10 @@ TEST(ImageUtil, TestImageUtil_PaddedMat)
     ASSERT_FALSE(img.isContinuous());
 
     auto img_ptr = RRC_Util::MatToImage(img, com::robotraconteur::image::ImageEncoding::bgr888);
-    ASSERT_EQ(img_ptr->image_info->width, 110u);
-    ASSERT_EQ(img_ptr->image_info->height, 100u);
-    ASSERT_EQ(img_ptr->image_info->step, 110u * 3u);
-    ASSERT_EQ(img_ptr->data->size(), 110u * 3u * 100u);
+    ASSERT_EQ(img_ptr->image_info->width, 110U);
+    ASSERT_EQ(img_ptr->image_info->height, 100U);
+    ASSERT_EQ(img_ptr->image_info->step, 110U * 3U);
+    ASSERT_EQ(img_ptr->data->size(), 110U * 3U * 100U);
 
     cv::Mat img_continuous = img.clone();
     compare_image_bytes(img_ptr, img_continuous);

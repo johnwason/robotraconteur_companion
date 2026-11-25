@@ -24,8 +24,8 @@ TEST(AttributesUtil, ExtendedWithoutTagsDoesNotThrow)
     ASSERT_NO_THROW(attrs = RRCUtil::GetDefaultServiceAttributesFromDeviceInfo(info));
 
     // device should be present, tags should be absent (no "tags" key was provided).
-    EXPECT_EQ(attrs.count("device"), 1u);
-    EXPECT_EQ(attrs.count("tags"), 0u);
+    EXPECT_EQ(attrs.count("device"), 1U);
+    EXPECT_EQ(attrs.count("tags"), 0U);
 }
 
 // Sanity: when "tags" IS present it is still added.
@@ -42,7 +42,7 @@ TEST(AttributesUtil, ExtendedWithTagsAddsTags)
 
     std::map<std::string, RR::RRValuePtr> attrs;
     ASSERT_NO_THROW(attrs = RRCUtil::GetDefaultServiceAttributesFromDeviceInfo(info));
-    EXPECT_EQ(attrs.count("tags"), 1u);
+    EXPECT_EQ(attrs.count("tags"), 1U);
 }
 
 int main(int argc, char** argv) // NOLINT
